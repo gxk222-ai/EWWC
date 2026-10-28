@@ -281,10 +281,7 @@ def base_context():
         "founder_portrait_note": "Approved portrait pending" if REVIEW else "",
         "jsonld": jsonld(),
         "review_class": " is-review" if REVIEW else "",
-        "review_banner": (
-            '<div class="review-banner" role="note"><div class="container">Preview build. '
-            '<span class="tbc">Dotted-underlined items</span> and labeled drafts need verification or approval before launch.</div></div>'
-        ) if REVIEW else "",
+        "review_banner": "",
     }
 
 
