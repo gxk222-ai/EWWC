@@ -21,7 +21,15 @@
             <p data-form-error-text>Some fields need your attention.</p>
           </div>
 
-          <form class="form" action="/api/contact" method="post" novalidate data-contact-form>
+          <!--
+            Formspree: https://formspree.io (free tier, no server required).
+            1. Sign up and create a form with the recipient inbox (confirm the address first).
+            2. Replace YOUR_FORM_ID below with the ID Formspree gives you.
+            3. Rebuild (python3 -I build.py) and push.
+          -->
+          <form class="form" action="https://formspree.io/f/YOUR_FORM_ID" method="post" novalidate data-contact-form>
+            <input type="hidden" name="_subject" value="Website enquiry: E Worldwide Consulting">
+            <input type="hidden" name="_next" value="/contact.html?status=sent#form">
             <div class="form-row">
               <div class="field">
                 <label for="name">Full name <span aria-hidden="true">*</span></label>
@@ -96,7 +104,7 @@
             </div>
             <div class="hp" aria-hidden="true">
               <label for="website">Leave this field empty</label>
-              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+              <input id="website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
             </div>
             <input type="hidden" name="started" value="" data-started>
             <div class="field field--check">

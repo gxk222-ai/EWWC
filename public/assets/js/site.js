@@ -148,6 +148,17 @@
     submit.disabled = true;
     submit.textContent = 'Sending…';
 
+    // Minimum fill-time spam trap: pretend to send, but don't actually post it.
+    var elapsed = Date.now() - Number(started.value || 0);
+    if (started.value && elapsed < 3000) {
+      setTimeout(function () {
+        showSuccess();
+        submit.disabled = false;
+        submit.textContent = 'Discuss Your Project';
+      }, 400);
+      return;
+    }
+
     var data = {};
     new FormData(form).forEach(function (v, k) { data[k] = v; });
     fetch(form.action, {
@@ -158,12 +169,13 @@
       return res.json().catch(function () { return {}; }).then(function (body) { return { ok: res.ok, body: body }; });
     }).then(function (r) {
       if (r.ok) { showSuccess(); return; }
-      var errs = (r.body && r.body.errors) || {};
-      Object.keys(errs).forEach(function (name) {
-        var f = form.elements[name];
-        if (f) setFieldError(f, errs[name]);
+      // Formspree returns {errors: [{field, message}, ...]}
+      var errs = (r.body && r.body.errors) || [];
+      errs.forEach(function (e) {
+        var f = e.field && form.elements[e.field];
+        if (f) setFieldError(f, e.message);
       });
-      showError((r.body && r.body.message) || 'We could not send your message. Please try again.');
+      showError((r.body && r.body.message) || (errs.length && errs[0].message) || 'We could not send your message. Please try again.');
     }).catch(function () {
       showError('We could not reach the server. Please check your connection and try again.');
     }).then(function () {

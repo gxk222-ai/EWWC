@@ -104,6 +104,23 @@ To use a CRM instead, add the call in `send_email()` (or a sibling function) in 
 
 Upload `public/` to any static host (Netlify, Vercel, Cloudflare Pages, S3 + CloudFront). Re-implement `/api/contact` as a serverless function using the validation rules in `server.py`, and copy the security headers from `SECURITY_HEADERS` into the host's header configuration.
 
+### Option C: GitHub Pages + a GoDaddy domain (current setup)
+
+GitHub Pages serves static files only, so `server.py` does not run there. This repo is wired for that:
+
+1. **Build and deploy.** `.github/workflows/deploy.yml` runs `python3 -I build.py` and publishes `public/` to GitHub Pages on every push to `main`. Repo setting required once: **Settings → Pages → Source → GitHub Actions** (already set on this repo).
+2. **Contact form.** The form in `templates/pages/contact.html` posts to Formspree instead of `/api/contact`, since there is no server:
+   - Sign up at [formspree.io](https://formspree.io) (free tier) with the inbox that should receive enquiries, and confirm that address.
+   - Create a form, copy its ID, and replace `YOUR_FORM_ID` in the form's `action` attribute in `templates/pages/contact.html`.
+   - Rebuild (`python3 -I build.py`) and push.
+   - The hidden `_gotcha` field is Formspree's own honeypot; the `started` field keeps the client-side minimum-fill-time check from the old server. Both discard spam without emailing or storing it.
+3. **Point the GoDaddy domain at GitHub Pages.** In GoDaddy's DNS management for the domain:
+   - `www` → **CNAME** → `gxk222-ai.github.io`
+   - apex/root domain → either GoDaddy's domain forwarding to `https://www.<domain>`, or four **A** records to GitHub Pages' IPs: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`.
+   - Then add the domain in the repo's **Settings → Pages → Custom domain**, and set a repository variable **`CUSTOM_DOMAIN`** (Settings → Secrets and variables → Actions → Variables) to the domain (e.g. `www.yourdomain.com`) — the workflow writes it into `public/CNAME` on every build so the custom domain survives rebuilds.
+   - Enable "Enforce HTTPS" in Pages settings once the certificate issues (can take up to ~24 hours after DNS propagates).
+4. **Update site facts.** Once the domain is live, set `site_url.value` in `content/site.json` to `https://www.<domain>` (used for canonical URLs, the sitemap, and structured data) and rebuild.
+
 ### Moving to Next.js later
 
 The brief recommends Next.js with TypeScript. This build was made without Node.js on the development machine. The design system (`site.css` tokens), templates and JSON content model translate one-to-one into Next.js components and a CMS; the contact handler becomes a Route Handler.
