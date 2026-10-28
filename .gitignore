@@ -1,0 +1,5 @@
+# Contact form submissions contain personal data. Never commit them.
+data/
+__pycache__/
+*.pyc
+.env

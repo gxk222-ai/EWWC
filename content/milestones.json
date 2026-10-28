@@ -1,0 +1,37 @@
+{
+  "_comment": "Founder story chapters. 'date' stays null until the founder confirms it. 'status' is draft until Vanessa approves the wording; add real, founder-provided events to 'events'.",
+  "chapters": [
+    {
+      "title": "The Beginning",
+      "subtitle": "A vision during uncertainty",
+      "date": null,
+      "status": "draft",
+      "body": "During a period when organizations were rethinking how they operated, collaborated and delivered value, Vanessa Ross established a vision for a consulting business that could connect business strategy with effective technology execution.",
+      "events": []
+    },
+    {
+      "title": "The Foundation",
+      "subtitle": "Turning vision into capability",
+      "date": null,
+      "status": "draft",
+      "body": "The early work centered on building practical delivery capability and earning trust one engagement at a time. Founder-confirmed details of early challenges, first clients and lessons learned will be added here.",
+      "events": []
+    },
+    {
+      "title": "The Growth",
+      "subtitle": "Building relationships and delivering value",
+      "date": null,
+      "status": "draft",
+      "body": "The firm developed its consulting capabilities, built trusted relationships and expanded its ambition to serve clients across the United States and South Africa. The actual sequence of milestones will be confirmed with the founder.",
+      "events": []
+    },
+    {
+      "title": "The Next Chapter",
+      "subtitle": "AI, applications and global opportunity",
+      "date": "Today",
+      "status": "draft",
+      "body": "E Worldwide Consulting is focused on production-ready AI agents, application engineering, intelligent automation, cloud transformation and international collaboration.",
+      "events": []
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "_comment": "Approved case studies only. status: 'published' renders a full card; 'placeholder' renders a clearly labeled slot. Never publish hypothetical or demo projects as client work.",
+  "_schema": {
+    "slug": "url-safe-id",
+    "status": "published | placeholder",
+    "region": "United States | South Africa | Cross-border",
+    "category": "e.g. AI agents and intelligent automation",
+    "client": "Client name if disclosure is authorized, otherwise an approved anonymized descriptor",
+    "industry": "",
+    "context": "1. Client context and industry",
+    "challenge": "2. Business challenge",
+    "objectives": "3. Project objectives",
+    "approach": "4. Solution architecture and delivery approach",
+    "technologies": ["5. Technologies used"],
+    "collaboration": "6. Implementation and collaboration model",
+    "outcomes": ["7. Verified outcomes (with source)"],
+    "lessons": "8. Lessons learned or future opportunities",
+    "approved_by": "Name and date of client/company approval"
+  },
+  "items": [
+    { "slug": "slot-us-1", "status": "placeholder", "region": "United States", "category": "Enterprise application development" },
+    { "slug": "slot-za-1", "status": "placeholder", "region": "South Africa", "category": "AI agents and intelligent automation" },
+    { "slug": "slot-global-1", "status": "placeholder", "region": "Cross-border", "category": "Data migration and systems integration" }
+  ]
+}

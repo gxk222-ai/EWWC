@@ -1,0 +1,135 @@
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Contact</span></nav>
+        <h1 class="display display--md" id="page-title">Let's discuss <span class="accent-text">your project.</span></h1>
+        <p class="lead lead--light">Tell us about your goals. A member of our team will respond to discuss next steps.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Contact options">
+      <div class="container contact-grid">
+        <div class="contact-form-wrap" id="form">
+          <h2 class="h2">Discuss Your Project</h2>
+          <p class="muted">Fields marked <span aria-hidden="true">*</span><span class="sr-only">with an asterisk</span> are required.</p>
+
+          <div class="form-alert form-alert--success" role="status" tabindex="-1" data-form-success hidden>
+            <h3 class="h4">Thank you. Your message has been received.</h3>
+            <p>We will review your project details and respond by email. If your request is time-sensitive, please mention it in a follow-up message.</p>
+          </div>
+          <div class="form-alert form-alert--error" role="alert" tabindex="-1" data-form-error hidden>
+            <h3 class="h5">Please check the form</h3>
+            <p data-form-error-text>Some fields need your attention.</p>
+          </div>
+
+          <form class="form" action="/api/contact" method="post" novalidate data-contact-form>
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Full name <span aria-hidden="true">*</span></label>
+                <input id="name" name="name" type="text" autocomplete="name" required maxlength="120" aria-describedby="name-error">
+                <p class="field-error" id="name-error" hidden></p>
+              </div>
+              <div class="field">
+                <label for="email">Business email <span aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" required maxlength="200" aria-describedby="email-error">
+                <p class="field-error" id="email-error" hidden></p>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="company">Company name <span aria-hidden="true">*</span></label>
+                <input id="company" name="company" type="text" autocomplete="organization" required maxlength="160" aria-describedby="company-error">
+                <p class="field-error" id="company-error" hidden></p>
+              </div>
+              <div class="field">
+                <label for="region">Country or region <span aria-hidden="true">*</span></label>
+                <select id="region" name="region" required aria-describedby="region-error">
+                  <option value="">Select</option>
+                  <option>United States</option>
+                  <option>South Africa</option>
+                  <option>Other</option>
+                </select>
+                <p class="field-error" id="region-error" hidden></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="service">Service of interest <span aria-hidden="true">*</span></label>
+              <select id="service" name="service" required aria-describedby="service-error">
+                <option value="">Select</option>
+                <option>AI agents and intelligent automation</option>
+                <option>Application development</option>
+                <option>Cloud and DevOps</option>
+                <option>Digital transformation and technology consulting</option>
+                <option>Data migration and integration</option>
+                <option>Not sure yet</option>
+              </select>
+              <p class="field-error" id="service-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="message">Project description <span aria-hidden="true">*</span></label>
+              <p class="field-hint" id="message-hint">Goals, current situation and any constraints. Please do not include confidential information.</p>
+              <textarea id="message" name="message" rows="6" required minlength="20" maxlength="4000" aria-describedby="message-hint message-error"></textarea>
+              <p class="field-error" id="message-error" hidden></p>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="budget">Budget range <span class="optional">(optional)</span></label>
+                <select id="budget" name="budget">
+                  <option value="">Prefer not to say</option>
+                  <option>Under $25,000</option>
+                  <option>$25,000 to $100,000</option>
+                  <option>$100,000 to $250,000</option>
+                  <option>Over $250,000</option>
+                  <option>To be determined</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="timeline">Preferred timeline <span class="optional">(optional)</span></label>
+                <select id="timeline" name="timeline">
+                  <option value="">Select</option>
+                  <option>As soon as possible</option>
+                  <option>Within 3 months</option>
+                  <option>3 to 6 months</option>
+                  <option>6 months or more</option>
+                  <option>Exploring options</option>
+                </select>
+              </div>
+            </div>
+            <div class="hp" aria-hidden="true">
+              <label for="website">Leave this field empty</label>
+              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <input type="hidden" name="started" value="" data-started>
+            <div class="field field--check">
+              <input id="consent" name="consent" type="checkbox" value="yes" required aria-describedby="consent-error">
+              <label for="consent">I agree that E Worldwide Consulting may use this information to respond to my enquiry, as described in the <a href="/privacy.html">Privacy Policy</a>. <span aria-hidden="true">*</span></label>
+              <p class="field-error" id="consent-error" hidden></p>
+            </div>
+            <button class="btn btn--primary btn--lg" type="submit" data-submit>Discuss Your Project</button>
+          </form>
+        </div>
+
+        <aside class="contact-aside">
+          <div class="contact-card">
+            <h2 class="h4">Contact details</h2>
+            <dl class="facts">
+              <dt>Email</dt><dd><a href="mailto:{{email}}">{{email_display}}</a></dd>
+              <dt>Headquarters</dt><dd>Atlanta, Georgia, United States</dd>
+              <dt>Markets</dt><dd>United States and South Africa</dd>
+            </dl>
+          </div>
+          <div class="contact-card contact-card--navy">
+            <h2 class="h4">Connect with Vanessa</h2>
+            <p>Reach our founder, Vanessa Ross, on LinkedIn.</p>
+            <a class="btn btn--light" href="{{linkedin}}" rel="noopener" target="_blank">{{icon:linkedin}} Connect with Vanessa<span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+          <div class="contact-card">
+            <h2 class="h5">What happens next</h2>
+            <ol class="numbered-list numbered-list--sm">
+              <li>We review your enquiry.</li>
+              <li>We reply to arrange an introductory conversation.</li>
+              <li>We agree on a practical first step.</li>
+            </ol>
+          </div>
+        </aside>
+      </div>
+    </section>

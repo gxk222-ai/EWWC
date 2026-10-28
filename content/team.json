@@ -1,0 +1,17 @@
+{
+  "_comment": "Publish only real, approved people. Each profile needs: name, approved title, short bio, expertise, optional profile link, approval record. Do not add proposed roles as people.",
+  "members": [
+    {
+      "name": "Vanessa Ross",
+      "title": "Founder",
+      "bio": "Vanessa founded E Worldwide Consulting to connect business strategy with effective technology execution. She leads the firm's client relationships and its focus on AI agents, application engineering and technology delivery.",
+      "expertise": ["Technology delivery leadership", "Client engagement", "Digital transformation"],
+      "link": "https://www.linkedin.com/in/vanessa-ross",
+      "approved": false
+    }
+  ],
+  "operating_model": {
+    "verified": false,
+    "note": "Describe accurately whether delivery uses employees, contractors, partners or distributed specialists, in the US and South Africa."
+  }
+}
