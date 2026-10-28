@@ -30,7 +30,17 @@ jobs:
           python-version: "3.12"
 
       - name: Build site
-        run: python3 -I build.py
+        # On a custom domain the site is served at "/", so BASE_PATH is empty.
+        # Without one, GitHub Pages serves this project page under "/<repo-name>/",
+        # so templates' root-relative hrefs/srcs need that prefix to resolve.
+        run: |
+          if [ -n "${{ vars.CUSTOM_DOMAIN }}" ]; then
+            export BASE_PATH=""
+          else
+            export BASE_PATH="/${GITHUB_REPOSITORY#*/}"
+          fi
+          echo "Using BASE_PATH='$BASE_PATH'"
+          python3 -I build.py
 
       - name: Write custom domain (CNAME)
         if: vars.CUSTOM_DOMAIN != ''

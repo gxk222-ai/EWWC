@@ -8,6 +8,7 @@ Standard library only. Hand-written assets live in public/assets/ and are not to
 import datetime
 import html
 import json
+import os
 import re
 from pathlib import Path
 
@@ -15,6 +16,12 @@ ROOT = Path(__file__).resolve().parent
 TEMPLATES = ROOT / "templates"
 CONTENT = ROOT / "content"
 PUBLIC = ROOT / "public"
+
+# When the site is served from a subpath (e.g. a GitHub Pages project page at
+# github.io/REPO/ instead of a custom domain at the root), set BASE_PATH="/REPO"
+# so root-relative hrefs/srcs in the templates resolve correctly. Leave unset
+# for a custom domain or any host that serves the site at "/".
+BASE_PATH = os.environ.get("BASE_PATH", "").rstrip("/")
 
 
 def load(name):
@@ -287,6 +294,9 @@ def write_page(slug, body, title, description, group, out_path, robots="index,fo
                description=esc(description), canonical=SITE_URL + path, robots=robots)
     ctx["body"] = render(body, ctx)
     page = render(layout, ctx)
+    if BASE_PATH:
+        # Rewrite root-relative hrefs/srcs (not full URLs or protocol-relative "//...") to the subpath.
+        page = re.sub(r'(href|src|action)="/(?!/)', '\\1="' + BASE_PATH + '/', page)
     if not REVIEW and 'class="tbc"' in page:
         UNRESOLVED.append(out_path.relative_to(PUBLIC).as_posix())
     out_path.parent.mkdir(parents=True, exist_ok=True)
