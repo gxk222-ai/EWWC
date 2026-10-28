@@ -7,8 +7,8 @@
       "category": "AI Agents",
       "summary": "Most AI pilots stall between the demo and the business. Five practical gates move an agent from an impressive prototype to a capability your organization can rely on.",
       "reading_time": 6,
-      "date": null,
-      "status": "draft",
+      "date": "2026-10-29",
+      "status": "published",
       "body": "<p>An AI agent that works in a demo is not yet a business capability. The gap is rarely the model. It is everything around it: the data the agent can reach, the actions it is allowed to take, how its work is checked and who is accountable when something goes wrong.</p><h2>1. Start with a workflow, not a model</h2><p>Choose a process with clear inputs, a recognizable definition of done and a measurable cost today. Document the steps people take, the systems they touch and the decisions they make. That map becomes the agent's job description and the baseline you will measure against.</p><h2>2. Decide what the agent may do on its own</h2><p>Separate actions into three groups: those the agent can take freely (search, summarize, draft), those that need human approval (send, update, commit), and those it must never take. Encode these rules in the system, not in a prompt alone, so they hold even when the model behaves unexpectedly.</p><h2>3. Connect to systems through governed interfaces</h2><p>Agents become useful when they can read and write to real systems. Give them access through well-defined APIs or tool interfaces with their own identity, scoped permissions and logging. Avoid sharing human credentials or granting broad database access.</p><h2>4. Evaluate before and after launch</h2><p>Build a test set from real, anonymized cases with known correct outcomes. Run it before every change. In production, sample completed work for human review and track accuracy, escalation rate, time saved and cost per task. Evaluation is a permanent operating practice, not a launch checklist.</p><h2>5. Plan for operations and ownership</h2><p>Name a business owner and a technical owner. Set budgets for model usage, monitor latency and failures, and agree how incidents are handled. Agents that have owners improve over time; agents without owners quietly degrade.</p><h2>The practical test</h2><p>Before scaling an agent, ask: can we explain what it did on any given case, show who approved material actions, and state what it costs per outcome? If the answer is yes, you have moved beyond a pilot.</p>"
     },
     {
@@ -17,8 +17,8 @@
       "category": "Application Development",
       "summary": "Full rewrites promise a clean slate and often deliver delay. An incremental approach modernizes the parts that matter most while the business keeps running.",
       "reading_time": 5,
-      "date": null,
-      "status": "draft",
+      "date": "2026-10-29",
+      "status": "published",
       "body": "<p>Legacy applications usually hold years of business rules that nobody has fully documented. Replacing them all at once concentrates risk: the new system must match every behavior of the old one before anyone sees value.</p><h2>Find the seams</h2><p>Identify the capabilities that change most often, cause the most support effort or block new initiatives. These are the best candidates to modernize first. Stable, low-change areas can often stay where they are for longer.</p><h2>Put an interface in front of the old system</h2><p>Expose the legacy application through a well-designed API layer. New user experiences, integrations and AI agents use the API, not the old system directly. Behind that interface, individual capabilities can then be rebuilt and switched over one at a time.</p><h2>Move data deliberately</h2><p>Data migration is where modernization programs most often slip. Profile data quality early, agree on ownership and definitions, rehearse migrations with production-like volumes and plan reconciliation before cut-over, not after.</p><h2>Automate delivery from day one</h2><p>Automated tests, continuous integration and repeatable deployments make each incremental release low-risk. They also give the business confidence to retire old components on schedule.</p><h2>Measure progress in business terms</h2><p>Track cycle time for changes, incident volume, user satisfaction and the share of traffic running on modern components. These measures show progress long before the last legacy screen is switched off.</p>"
     },
     {
@@ -27,8 +27,8 @@
       "category": "Technology Leadership",
       "summary": "Teams spread across the United States and South Africa can deliver faster, not slower, when the operating model is designed for it from the start.",
       "reading_time": 5,
-      "date": null,
-      "status": "draft",
+      "date": "2026-10-29",
+      "status": "published",
       "body": "<p>Cross-border delivery is often treated as a cost decision. Done well, it is a capability decision: it brings the right people to a problem regardless of where they sit, and it can extend the productive hours of a program.</p><h2>Design for the time-zone overlap</h2><p>Atlanta and Johannesburg are six or seven hours apart depending on daylight saving time, leaving a shared window in the US morning. Protect that window for decisions, reviews and unblocking. Use the hours outside it for focused, well-specified work with clear hand-offs.</p><h2>Write things down</h2><p>Distributed teams depend on written context: decision logs, acceptance criteria, architecture notes and short recorded walkthroughs. Good documentation reduces meetings and lets work continue when the other side of the team is offline.</p><h2>Share one definition of done</h2><p>Agree on quality standards, test coverage, security checks and release criteria across all locations. Automate them in the delivery pipeline so they apply equally, wherever the code was written.</p><h2>Respect local context</h2><p>Regulation, data protection rules, holidays and business customs differ. In South Africa, for example, the Protection of Personal Information Act shapes how personal data is handled. Build these considerations into planning rather than discovering them late.</p><h2>Invest in relationships</h2><p>Trust carries distributed programs through difficult moments. Regular in-person or video time between leads, clear ownership and visible recognition across locations matter as much as tooling.</p>"
     }
   ]

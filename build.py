@@ -265,10 +265,12 @@ def founded_in():
 
 def base_context():
     email = SITE["contact_email"]
+    sa = SITE["south_africa_office"]
     return {
         "site_url": SITE_URL,
         "email": esc(email["value"]),
         "email_display": tbc(email["value"], email["note"]) if not email["verified"] else esc(email["value"]),
+        "sa_presence": esc(sa["value"]) if sa["verified"] and sa["value"] else tbc("Nature of local presence to be confirmed", sa["note"]),
         "linkedin": esc(SITE["founder"]["linkedin"]),
         "year": datetime.date.today().year,
         "map": (TEMPLATES / "partials" / "world-map.svg").read_text(),

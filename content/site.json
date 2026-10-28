@@ -3,10 +3,10 @@
   "name": "E Worldwide Consulting",
   "tagline": "Strategy-led. AI-powered. Enterprise-ready. Globally connected.",
   "site_url": { "value": "https://www.eworldwideconsulting.com", "verified": true, "note": "Confirmed production domain. Served via GitHub Pages; GitHub's github.io/EWWC/ URL is used as the UAT/staging environment until GoDaddy DNS and the CUSTOM_DOMAIN repo variable are switched over." },
-  "contact_email": { "value": "vross@ewroldwidesconsulting.com", "verified": false, "note": "Supplied address. The domain may contain a spelling error and a public résumé references a different domain. Confirm before launch; do not substitute silently." },
+  "contact_email": { "value": "vross@ewroldwidesconsulting.com", "verified": true, "note": "Confirmed by the user as correct, including this exact spelling." },
   "headquarters": { "locality": "Atlanta", "region": "Georgia", "country": "United States", "street_address": null, "verified": true, "note": "City confirmed in the brief. Street address, phone and registration details are not yet supplied." },
   "markets": ["United States", "South Africa"],
-  "south_africa_office": { "value": null, "verified": false, "note": "No physical South African office is confirmed. Do not add a city or address until verified." },
+  "south_africa_office": { "value": "Remote team", "verified": true, "note": "Confirmed by the user: remote team, no physical office." },
   "founder": {
     "name": "Vanessa Ross",
     "title": { "value": "Founder", "verified": true, "note": "Add her full verified title (e.g. Founder & CEO) once confirmed." },
